@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fincoach - Your Autonomous Financial Coach</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="14" fill="url(#gradient)" />
+                        <path d="M16 8v16M12 12l4-4 4 4M12 20l4 4 4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>Fincoach</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-secondary">Sign In</button>
+                    <button class="btn-primary">Get Started</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>AI-Powered Financial Intelligence</span>
+                </div>
+                <h1 class="hero-title">
+                    Your Personal <span class="gradient-text">Financial Coach</span> Available 24/7
+                </h1>
+                <p class="hero-description">
+                    Fincoach uses advanced AI to analyze your finances, provide personalized advice, 
+                    and help you achieve your financial goals faster than ever before.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary btn-large">Start Free Trial</button>
+                    <button class="btn-secondary btn-large" onclick="openDemoVideo()"></button>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                        </svg>
+                        Watch Demo
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$2.5M+</div>
+                        <div class="stat-label">Money Saved</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">User Rating</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="chart-container">
+                            <canvas id="heroChart"></canvas>
+                        </div>
+                        <div class="insight-cards">
+                            <div class="insight-card">
+                                <div class="insight-icon">💰</div>
+                                <div class="insight-text">
+                                    <div class="insight-title">Savings Goal</div>
+                                    <div class="insight-value">$12,450 / $15,000</div>
+                                </div>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">📈</div>
+                                <div class="insight-text">
+                                    <div class="insight-title">Investment Growth</div>
+                                    <div class="insight-value">+18.5% this year</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features for <span class="gradient-text">Smart Money Management</span></h2>
+                <p class="section-description">Everything you need to take control of your financial future</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Get personalized recommendations based on your spending patterns and financial goals</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Track your income, expenses, and investments with beautiful, intuitive dashboards</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Goal Planning</h3>
+                    <p>Set and achieve financial goals with automated savings and smart budgeting tools</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Bank-Level Security</h3>
+                    <p>Your data is protected with 256-bit encryption and multi-factor authentication</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Smart Alerts</h3>
+                    <p>Never miss a bill or unusual transaction with intelligent notifications</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Manage your finances on the go with our beautiful mobile app</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get Started in <span class="gradient-text">3 Simple Steps</span></h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Connect Your Accounts</h3>
+                    <p>Securely link your bank accounts, credit cards, and investment accounts in minutes</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Your Goals</h3>
+                    <p>Tell Fincoach about your financial goals and let AI create a personalized plan</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Watch Your Wealth Grow</h3>
+                    <p>Follow AI-powered recommendations and track your progress in real-time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your <span class="gradient-text">Perfect Plan</span></h2>
+                <p class="section-description">Start free, upgrade when you're ready</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">0</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ Connect up to 2 accounts</li>
+                        <li>✓ Basic budgeting tools</li>
+                        <li>✓ Expense tracking</li>
+                        <li>✓ Mobile app access</li>
+                    </ul>
+                    <button class="btn-secondary btn-block">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">12</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ Unlimited accounts</li>
+                        <li>✓ AI-powered insights</li>
+                        <li>✓ Goal planning & tracking</li>
+                        <li>✓ Investment analysis</li>
+                        <li>✓ Priority support</li>
+                    </ul>
+                    <button class="btn-primary btn-block">Start Free Trial</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">29</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ Personal financial advisor</li>
+                        <li>✓ Tax optimization</li>
+                        <li>✓ Advanced portfolio analysis</li>
+                        <li>✓ Custom reports</li>
+                    </ul>
+                    <button class="btn-secondary btn-block">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Loved by <span class="gradient-text">Thousands</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Fincoach helped me save $5,000 in just 6 months. The AI insights are incredibly accurate!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div>
+                            <div class="author-name">Sarah Martinez</div>
+                            <div class="author-title">Marketing Manager</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Finally, a financial app that actually understands my goals. The automated savings feature is a game-changer."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div>
+                            <div class="author-name">James Davidson</div>
+                            <div class="author-title">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"I've tried many finance apps, but Fincoach is the only one I actually use daily. It's that good!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EP</div>
+                        <div>
+                            <div class="author-name">Emily Parker</div>
+                            <div class="author-title">Small Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Financial Future?</h2>
+                <p>Join thousands of users who are already achieving their financial goals with Fincoach</p>
+                <button class="btn-primary btn-large">Start Your Free Trial</button>
+                <p class="cta-note">No credit card required • 14-day free trial • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="14" fill="url(#gradient2)" />
+                            <path d="M16 8v16M12 12l4-4 4 4M12 20l4 4 4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="0" y1="0" x2="32" y2="32">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>Fincoach</span>
+                    </div>
+                    <p>Your autonomous financial coach, powered by AI</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fincoach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <button class="video-close" onclick="closeDemoVideo()">&times;</button>
+            <div class="video-container">
+                <iframe id="demoVideo" width="100%" height="100%" 
+                    src="" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="public/config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+PORT=3000
+JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
+JWT_EXPIRE=7d
+NODE_ENV=development
+APP_NAME=Fincoach
+
+# Supabase Configuration
+SUPABASE_URL=https://yrgeujkmnqsedikezgso.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyZ2V1amttbnFzZWRpa2V6Z3NvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQzNDI1ODgsImV4cCI6MjA3OTkxODU4OH0.FSDPJZK9bGS7M4lYHWuOiKSj-msnPUuN87WHmSqnv20
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+USE_SUPABASE=true
+
+# Twilio SMS Configuration
+TWILIO_ACCOUNT_SID=your_twilio_account_sid
+TWILIO_AUTH_TOKEN=your_twilio_auth_token
+TWILIO_PHONE_NUMBER=your_twilio_phone_number
+ENABLE_SMS=false
+
+# Email Configuration
+EMAIL_SERVICE=gmail
+EMAIL_USER=your-email@gmail.com
+EMAIL_APP_PASSWORD=your-app-specific-password
+EMAIL_FROM=noreply@fincoach.com
+ENABLE_EMAIL=false

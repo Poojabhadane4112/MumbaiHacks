@@ -1,0 +1,148 @@
+// Switch between Sign In and Sign Up forms
+function switchToSignUp(event) {
+    event.preventDefault();
+    document.getElementById('signin-form').classList.remove('active');
+    document.getElementById('signup-form').classList.add('active');
+}
+
+function switchToSignIn(event) {
+    event.preventDefault();
+    document.getElementById('signup-form').classList.remove('active');
+    document.getElementById('signin-form').classList.add('active');
+}
+
+// Handle Sign In
+async function handleSignIn(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('signin-email').value;
+    const password = document.getElementById('signin-password').value;
+    const rememberMe = document.getElementById('remember-me').checked;
+    
+    try {
+        const response = await fetch('http://localhost:3000/api/auth/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password, rememberMe })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Store token and user info
+            localStorage.setItem('fincoach_token', data.data.token);
+            localStorage.setItem('user_name', data.data.name);
+            localStorage.setItem('user_email', data.data.email);
+            
+            // Check if user has completed financial profile
+            const profileResponse = await fetch('http://localhost:3000/api/financial-profile', {
+                headers: {
+                    'Authorization': `Bearer ${data.data.token}`
+                }
+            });
+            
+            const profileData = await profileResponse.json();
+            
+            if (profileData.success) {
+                // Profile exists, go to dashboard
+                alert('Welcome back! Redirecting to dashboard...');
+                window.location.href = 'dashboard.html';
+            } else {
+                // No profile, go to onboarding
+                alert('Welcome! Let\'s set up your financial profile.');
+                window.location.href = 'onboarding.html';
+            }
+        } else {
+            alert('Error: ' + (data.message || 'Login failed'));
+        }
+    } catch (error) {
+        console.error('Signin error:', error);
+        alert('Failed to sign in. Please try again.');
+    }
+}
+
+// Handle Sign Up
+async function handleSignUp(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('signup-name').value;
+    const email = document.getElementById('signup-email').value;
+    const mobile = document.getElementById('signup-mobile').value;
+    const password = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('signup-confirm-password').value;
+    const passkey = document.getElementById('signup-passkey').value;
+    
+    // Validate passwords match
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+    
+    try {
+        const signupData = { name, email, mobile, password };
+        
+        // Add passkey if provided
+        if (passkey && passkey.length >= 8) {
+            signupData.passkey = passkey;
+        }
+        
+        const response = await fetch('http://localhost:3000/api/auth/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(signupData)
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Store token
+            localStorage.setItem('fincoach_token', data.data.token);
+            localStorage.setItem('user_name', data.data.name);
+            localStorage.setItem('user_email', data.data.email);
+            
+            alert('Account created successfully! Let\'s set up your financial profile.');
+            window.location.href = 'onboarding.html';
+        } else {
+            alert('Error: ' + (data.message || 'Registration failed'));
+        }
+    } catch (error) {
+        console.error('Signup error:', error);
+        alert('Failed to create account. Please try again.');
+    }
+}
+
+// Social login handlers
+document.addEventListener('DOMContentLoaded', () => {
+    const socialButtons = document.querySelectorAll('.btn-social');
+    
+    socialButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const provider = e.currentTarget.textContent.trim();
+            console.log(`${provider} login clicked`);
+            // Add your social authentication logic here
+            alert(`${provider} authentication would be triggered here`);
+        });
+    });
+});
+
+// Password strength indicator (optional enhancement)
+const signupPassword = document.getElementById('signup-password');
+if (signupPassword) {
+    signupPassword.addEventListener('input', (e) => {
+        const password = e.target.value;
+        // Add password strength logic here
+        console.log('Password strength check:', password.length);
+    });
+}
+
+
+// Handle hash navigation for direct signup link
+window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash === '#signup') {
+        switchToSignUp(new Event('click'));
+    }
+});

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Profile - Fincoach</title>
+    <link rel="stylesheet" href="onboarding.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Header -->
+        <div class="onboarding-header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" fill="url(#gradient)" />
+                    <path d="M16 8v16M12 12l4-4 4 4M12 20l4 4 4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Fincoach</span>
+            </div>
+            <div class="step-indicator">
+                <span id="currentStep">1</span> of <span id="totalSteps">4</span>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-wrapper">
+            <form id="onboardingForm">
+                
+                <!-- Step 1: Income Information -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-content">
+                        <div class="step-icon">💰</div>
+                        <h2>Let's start with your income</h2>
+                        <p class="step-description">This helps us understand your financial capacity</p>
+
+                        <div class="form-group">
+                            <label for="employmentStatus">Employment Status</label>
+                            <select id="employmentStatus" name="employmentStatus" required>
+                                <option value="">Select your status</option>
+                                <option value="employed">Employed Full-time</option>
+                                <option value="self-employed">Self-employed</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="freelance">Freelancer</option>
+                                <option value="unemployed">Unemployed</option>
+                                <option value="retired">Retired</option>
+                                <option value="student">Student</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthlyIncome">Monthly Income (After Tax)</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="monthlyIncome" name="monthlyIncome" placeholder="5000" min="0" step="100" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additionalIncome">Additional Income Sources (Optional)</label>
+                            <input type="text" id="additionalIncome" name="additionalIncome" placeholder="e.g., Rental income, investments, side business">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additionalIncomeAmount">Additional Monthly Income</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="additionalIncomeAmount" name="additionalIncomeAmount" placeholder="0" min="0" step="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Expenses -->
+                <div class="form-step" data-step="2">
+                    <div class="step-content">
+                        <div class="step-icon">🏠</div>
+                        <h2>Your monthly expenses</h2>
+                        <p class="step-description">Help us understand where your money goes</p>
+
+                        <div class="form-group">
+                            <label for="housingCost">Housing (Rent/Mortgage)</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="housingCost" name="housingCost" placeholder="1500" min="0" step="50" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="utilities">Utilities (Electric, Water, Internet)</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="utilities" name="utilities" placeholder="200" min="0" step="10" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transportation">Transportation</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="transportation" name="transportation" placeholder="300" min="0" step="10" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="groceries">Groceries & Food</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="groceries" name="groceries" placeholder="400" min="0" step="10" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otherExpenses">Other Monthly Expenses</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="otherExpenses" name="otherExpenses" placeholder="500" min="0" step="10">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Debts & Savings -->
+                <div class="form-step" data-step="3">
+                    <div class="step-content">
+                        <div class="step-icon">💳</div>
+                        <h2>Debts and savings</h2>
+                        <p class="step-description">Let's understand your financial obligations and assets</p>
+
+                        <div class="form-group">
+                            <label for="totalDebt">Total Outstanding Debt</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="totalDebt" name="totalDebt" placeholder="10000" min="0" step="100">
+                            </div>
+                            <small>Include credit cards, loans, student debt, etc.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthlyDebtPayment">Monthly Debt Payments</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="monthlyDebtPayment" name="monthlyDebtPayment" placeholder="500" min="0" step="10">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentSavings">Current Savings</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="currentSavings" name="currentSavings" placeholder="5000" min="0" step="100">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emergencyFund">Emergency Fund</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="emergencyFund" name="emergencyFund" placeholder="3000" min="0" step="100">
+                            </div>
+                            <small>Funds set aside for unexpected expenses</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Financial Goals -->
+                <div class="form-step" data-step="4">
+                    <div class="step-content">
+                        <div class="step-icon">🎯</div>
+                        <h2>Your financial goals</h2>
+                        <p class="step-description">What do you want to achieve?</p>
+
+                        <div class="form-group">
+                            <label>Primary Financial Goals (Select all that apply)</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="goals" value="save-emergency">
+                                    <span>Build emergency fund</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="goals" value="pay-debt">
+                                    <span>Pay off debt</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="goals" value="save-house">
+                                    <span>Save for a house</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="goals" value="retirement">
+                                    <span>Plan for retirement</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="goals" value="invest">
+                                    <span>Start investing</span>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="goals" value="education">
+                                    <span>Save for education</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="savingsGoal">Monthly Savings Goal</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="savingsGoal" name="savingsGoal" placeholder="500" min="0" step="50">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeHorizon">Time Horizon for Main Goal</label>
+                            <select id="timeHorizon" name="timeHorizon" required>
+                                <option value="">Select timeframe</option>
+                                <option value="short">Short-term (0-2 years)</option>
+                                <option value="medium">Medium-term (2-5 years)</option>
+                                <option value="long">Long-term (5+ years)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="riskTolerance">Investment Risk Tolerance</label>
+                            <select id="riskTolerance" name="riskTolerance" required>
+                                <option value="">Select your comfort level</option>
+                                <option value="conservative">Conservative - Preserve capital</option>
+                                <option value="moderate">Moderate - Balanced growth</option>
+                                <option value="aggressive">Aggressive - Maximum growth</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn-secondary" id="prevBtn" onclick="changeStep(-1)">Previous</button>
+                    <button type="button" class="btn-primary" id="nextBtn" onclick="changeStep(1)">Next</button>
+                    <button type="submit" class="btn-primary" id="submitBtn" style="display: none;">Complete Setup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="public/config.js"></script>
+    <script src="onboarding.js"></script>
+</body>
+</html>
